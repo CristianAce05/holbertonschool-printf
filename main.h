@@ -25,10 +25,10 @@ int print_string(va_list args);
 int print_percent(va_list args);
 int print_int(va_list args);
 int print_unsigned(va_list args);
-int print_octal(va_list args);
-int print_hex_lower(va_list args);
-int print_hex_upper(va_list args);
-int print_pointer(va_list args);
+// int print_octal(va_list args);
+// int print_hex_lower(va_list args);
+// int print_hex_upper(va_list args);
+// int print_pointer(va_list args);
 
 /* helper functions */
 int _putchar(char c);
@@ -36,6 +36,7 @@ int print_number(long n);
 int print_unsigned_number(unsigned long n);
 int print_hex(unsigned long n, int uppercase);
 int print_octal_number(unsigned long n);
+int print_int_helper(unsigned int n);
 
 #endif /* MAIN_H */
 
