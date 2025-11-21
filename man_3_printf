@@ -1,0 +1,97 @@
+.TH _PRINTF 3 "November 2025" "Holberton School" "_printf Manual"
+.SH NAME
+_printf \- custom formatted output conversion function
+.SH SYNOPSIS
+.B #include "main.h"
+.br
+.B int _printf(const char *format, ...);
+.SH DESCRIPTION
+The
+.B _printf
+function produces output according to a format string.  
+It writes to the standard output (stdout) and behaves similarly to the
+standard C library function printf(3), but supports only a limited set 
+of conversion specifiers as required by the Holberton School project.
+
+The format string may contain ordinary characters, which are written 
+unchanged, and conversion specifiers beginning with the '%' character.
+
+This implementation supports the following conversion specifiers:
+
+.TP
+.B %c
+Prints a single character.
+
+.TP
+.B %s
+Prints a null-terminated string.  
+If the string is NULL, "(null)" is printed.
+
+.TP
+.B %%
+Prints the '%' character.
+
+.TP
+.B %d
+Prints a signed decimal integer.
+
+.TP
+.B %i
+Prints a signed decimal integer (identical to %d).
+
+.PP
+This implementation does NOT handle:
+.IP \(bu 2
+Flags (+, space, #, -, 0)
+.IP \(bu
+Field width
+.IP \(bu
+Precision
+.IP \(bu
+Length modifiers (l, h, etc.)
+.IP \(bu
+Other specifiers such as %u, %o, %x, %X, %p
+
+.SH RETURN VALUE
+The function returns the total number of characters printed.  
+If the format string is NULL, the function returns -1.
+
+.SH ERROR HANDLING
+.IP \(bu 2
+Unknown specifiers are printed literally (example: "%q" → "%q")
+.IP \(bu
+Returns -1 when format is NULL
+
+.SH EXAMPLES
+.nf
+_printf("Hello World!\n");
+
+_printf("Character: %c\n", 'A');
+
+_printf("String: %s\n", "Holberton");
+
+_printf("Percent: %%\n");
+
+_printf("Integer: %d\n", 123);
+
+_printf("Negative: %i\n", -456);
+.fi
+
+.SH CONFORMING TO
+This implementation follows the specifications of the Holberton School
+group project "0x11. C - printf".  
+It uses:
+.IP \(bu 2
+write() for output
+.IP \(bu
+Variadic functions from stdarg.h
+.IP \(bu
+No global variables
+.IP \(bu
+Betty coding style
+
+.SH SEE ALSO
+printf(3), write(2), stdarg(3)
+
+.SH AUTHOR
+Developed by Bryan Ramos and Cristian Acevedo
